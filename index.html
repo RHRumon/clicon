@@ -133,13 +133,23 @@
             <div
               class="border border-l border-[#FFFFFF] h-[1.5rem] mx-[10px]"
             ></div>
-            <div class="flex gap-2 items-center">
-              <p class="text-[#FFFFFF]">Eng</p>
-              <i class="fa-solid fa-chevron-down"></i>
+            <div class="flex gap-2 items-center ">
+              <!-- <i class="fa-solid fa-chevron-down"></i> -->
+              <p class="font-[500]">
+                <select class="bg-[#1B6392]" name="lang" id="lang" class="text-black">
+                 <option value="english">English</option>
+                 <option value="mandarin">Mandarin</option>
+                 <option value="russian">Russian</option>
+               </select>
+             </p>
             </div>
             <div class="flex gap-2 items-center">
-              <p class="text-[#FFFFFF]">USD</p>
-              <i class="fa-solid fa-chevron-down"></i>
+              <p class="text-[#FFFFFF]">
+                <select class="bg-[#1B6392]" name="usd" id="usd">
+                  <option value="">Dollar (USD)</option>
+                  <option value="">Euro (EUR)</option>
+                </select>
+              </p>
             </div>
           </div>
         </div>
@@ -174,10 +184,123 @@
             </div>
           </div>
           <!-- inner 3 -->
-          <div class="flex gap-[17px] text-white">
-            <i class="fa-solid fa-cart-shopping"></i>
+          <div class="flex gap-[17px] text-white items-center">
+            <button onclick="openCart()">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
             <i class="hidden md:block fa-regular fa-heart"></i>
-            <i class="hidden md:block fa-solid fa-user"></i>
+            <button onclick="openSignIn()">
+              <i class=" fa-solid fa-user profile"></i>
+            </button>
+          </div>
+          <!-- after clicking Cart icon -->
+           <div id="myCart" class="hidden absolute top-0 right-0   z-10 bg-white w-[420px] ">
+               <div class="ml-7 py-3">
+                 <p><span class="font-[500]">Shopping Cart</span> (02)</p>
+               </div>
+               <hr>
+               <div class="mt-5 flex gap-[2.75rem] items-center p-3">
+                  <div class="w-[80px] h-[80px] ">
+                     <img class=" w-full h-full" src="./Images/camera.jpeg" alt="">
+                  </div>
+                  <div class="w-[190px] ">
+                    <p class="line-clamp-2">Canon EOS 1500D DSLR <br> Camera Body+ 18-55 mm</p>
+                    <p>1 x <span>$1,500</span></p>
+                  </div>
+                  <div class="">
+                    <i class="fa-solid fa-square-xmark"></i>
+                  </div>
+               </div>
+               <div class="mt-5 flex gap-[2.75rem] items-center p-3">
+                  <div class="w-[80px] h-[80px] ">
+                    <img class="w-full h-full" src="./Images/ipun.jpeg" alt="">
+                  </div>
+                  <div class="w-[190px] ">
+                    <p class="line-clamp-2">Simple Mobile 5G LTE Galaxy 12 Mini 512GB Gaming Phone</p>
+                    <p>2 x <span>$269</span></p>
+                  </div>
+                  <div class="">
+                    <i class="fa-solid fa-square-xmark"></i>
+                  </div>
+               </div>
+               <!-- <div class=" flex gap-[2.75rem] items-center justify-between p-3">
+                  <div class="w-[80px] h-[80px]  ">
+                     
+                  </div>
+                  <div class="w-[190px]  ">
+                    <p class="line-clamp-2">Simple Mobile 5G LTE Galaxy 12 Mini 512GB Gaming Phone</p>
+                    <p>2 x <span>$269</span></p>
+                  </div>
+                    <i class="fa-solid fa-square-xmark"></i>
+               </div> -->
+               <hr>
+               <div class="px-3 mt-3">
+                <div class="flex justify-between">
+                  <p class="text-[#475156]">Sub-Total:</p>
+                  <p>$2038.00 USD</p>
+                 </div>
+                 
+                  <div class="flex flex-col mt-5 gap-3">
+                    <button
+                  class="border-2 border-[#FA8232] hover:bg-[#FA8232] hover:text-white text-[#FA8232] text-[16px] font-bold rounded-[3px] p-[10px]   px-3 w-full"
+                >
+                CHECKOUT NOW <i class="fa-solid fa-arrow-right ml-[8px]"></i>
+                </button>
+                  <button
+                  class="border-2 border-[#FA8232] hover:bg-[#FA8232] hover:text-white text-[#FA8232] text-[16px] font-bold rounded-[3px] p-[10px]   px-3 w-full"
+                >
+                VIEW CART
+                </button>
+                </button>
+                  <button onclick="closeCart()"
+                  class="border-2 border-[#FA8232] bg-red-600 hover:text-white text-white text-[16px] font-bold rounded-[3px] p-[10px] mb-[24px]  px-3 w-full"
+                >
+                CLOSE CART
+                </button>
+                  </div>
+               </div>
+              
+           </div>
+          <!-- after clicking profile icon -->
+          <div id="myform" class="hidden  z-10">
+            <div class="absolute top-0 right-0 text-black bg-white w-[420px] p-5 rounded-md">
+              <p class="text-center text-[#191C1F] text-xl font-[600]">Sign in to your account</p>
+              <div class="flex flex-col space-y-3 mt-5">
+                <label for="email">Email Address</label>
+              <input type="email" class="border-2 p-[10px]">
+              </div>
+              <div class="flex flex-col space-y-3 mt-[16px]">
+                <div class="flex justify-between">
+                  <label for="email">Password</label>
+                  <p class="text-[#2DA5F3]">Forget Password</p>
+                </div>
+              <!-- <div class=""> -->
+                <!-- <i class="fa-regular fa-eye  "></i> -->
+                <input type="email" class="border-2 p-[10px] ">
+                 
+              <!-- </div> -->
+
+              <button
+                  class="bg-gray-300 hover:bg-[#FA8232] hover:text-white text-[#191C1F] text-[16px] font-bold rounded-[3px] p-[10px] px-4 mb-[24px] mt-[20px]"
+                >
+                LOGIN <i class="fa-solid fa-arrow-right ml-[8px]"></i>
+                </button>
+                <p class="text-center">Don’t have account</p>
+
+                <button
+                  class="hover:bg-[#FA8232] hover:text-white text-[#FA8232] text-[16px] font-bold rounded-[3px] p-[10px] px-4 border-[#FA8232] border-2"
+                >
+                CREATE ACCOUNT
+                </button>
+                <button onclick="closeform()"
+                  class="border-2 hover:bg-[#FA8232] hover:text-white text-[#FA8232] text-[16px] font-bold rounded-[3px] p-[10px] px-4 border-[#FA8232]"
+                >
+                  CANCEL
+                </button>
+                
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
@@ -190,8 +313,24 @@
           <!-- inner 1 -->
           <div class="flex items-center gap-[24px]">
             <div class="flex items-center hover:bg-[#F2F4F5] p-2 gap-1">
-              <p class="text-sm font-[500]">All Category</p>
-              <i class="fa-solid fa-chevron-down"></i>
+              <p class="text-sm font-[500]">
+                 <label for="cars" >All Catagories:</label>
+                 <select name="cars" id="cars" class="text-red-500">
+                  <option value="volvo">Computer & Laptop</option>
+                  <option value="saab">Computer Accessories</option>                  
+                
+
+                  <option value="audi">Headphone</option>
+                  <option value="audi">Mobile Accessories</option>
+                  <option value="audi">Gaming Console</option>
+                  <option value="audi">Camera & Photo</option>
+                  <option value="audi">TV & Homes Appliances</option>
+                  <option value="audi">Watches & Accessories</option>
+                  <option value="audi">GPS & Navigation</option>
+                  <option value="audi">Wearable Technology</option>
+                </select>
+              </p>
+              <!-- <i class="fa-solid fa-chevron-down"></i> -->
             </div>
             <div class="hidden md:block">
               <div class="flex items-center hover:bg-[#F2F4F5] p-2 gap-1">

@@ -29,4 +29,20 @@ var swiper = new Swiper(".mySwiper", {
       },
     }
   });
-  
+
+  function openSignIn(){
+    document.getElementById('myform').classList.remove('hidden');
+    
+  }
+
+  function closeform(){
+     document.getElementById('myform').classList.add('hidden');
+  }
+
+  function openCart(){
+     document.getElementById("myCart").classList.remove('hidden');
+  }
+
+  function closeCart(){
+    document.getElementById('myCart').classList.add('hidden');
+  }
